@@ -61,6 +61,30 @@ public class Robot {
     }
 
     public static void moveRobot(Robot robot, int toX, int toY) {
-        // some code
+        int xRelative = toX - robot.getX();
+        int yRelative = toY - robot.getY();
+
+        if (xRelative > 0) {
+            turnToDirection(robot, Direction.RIGHT);
+        } else if (xRelative < 0) {
+            turnToDirection(robot, Direction.LEFT);
+        }
+
+        for (int i = 0; i < Math.abs(xRelative); i++)
+            robot.stepForward();
+
+        if (yRelative > 0) {
+            turnToDirection(robot, Direction.UP);
+        } else if (yRelative < 0) {
+            turnToDirection(robot, Direction.DOWN);
+        }
+
+        for (int i = 0; i < Math.abs(yRelative); i++)
+            robot.stepForward();
+    }
+
+    public static void turnToDirection(Robot robot, Direction dir) {
+        while (dir != robot.getDirection())
+            robot.turnRight();
     }
 }
