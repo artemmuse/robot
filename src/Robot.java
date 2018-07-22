@@ -60,7 +60,7 @@ public class Robot {
         }
     }
 
-    public void moveRobot(Robot robot, int toX, int toY) {
+    public static void moveRobot(Robot robot, int toX, int toY) {
         // some code
     }
 }
